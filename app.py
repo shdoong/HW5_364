@@ -172,7 +172,7 @@ def delete(lst):
     todo_lst = TodoList.query.filter_by(id = lst).first()
     db.session.delete(todo_lst)
     db.session.commit()
-    flash('Successfully deleted Another List')
+    flash('Successfully deleted ' + todo_lst.title)
     return redirect("/all_lists")    # This code should successfully delete the appropriate todolist
     # Should flash a message about what was deleted, e.g. Deleted list <title of list>
     # And should redirect the user to the page showing all the todo lists
