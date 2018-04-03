@@ -156,7 +156,7 @@ def update(item):
         item = TodoItem.query.filter_by(id = item).first().description
         db.session.commit()
         flash("Updated priority of item: " + str(item)  )
-        return redirect("/all_lists") 
+        return redirect(url_for("all_lists"))
     return render_template('update_item.html', form=form)
 
     # This code should use the form you created above for updating the specific item and manage the process of updating the item's priority.
@@ -173,7 +173,7 @@ def delete(lst):
     db.session.delete(todo_lst)
     db.session.commit()
     flash('Successfully deleted ' + todo_lst.title)
-    return redirect("/all_lists")    # This code should successfully delete the appropriate todolist
+    return redirect(url_for("all_lists"))    # This code should successfully delete the appropriate todolist
     # Should flash a message about what was deleted, e.g. Deleted list <title of list>
     # And should redirect the user to the page showing all the todo lists
     # HINT: Compare against what you've done for updating and class notes -- the goal here is very similar, and in some ways simpler.
