@@ -93,7 +93,7 @@ def get_or_create_item(item_string):
     if item:
         return item
     else:
-        item = TodoItem(description=elements[0],priority=elements[-1])
+        item = TodoItem(description=elements[0],priority=int(elements[-1]))
         db.session.add(item)
         db.session.commit()
         return item
